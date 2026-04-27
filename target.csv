@@ -9,3 +9,4 @@ id,name,age,department,salary,city,experience
 8,Vikram,27,IT,48000,Chennai,2
 9,Anjali,33,HR,58000,Mumbai,8
 10,Rohit,36,Finance,75000,Pune,12
+11,machine,0.6,AI,655,Tokio,1
