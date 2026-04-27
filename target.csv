@@ -1,0 +1,11 @@
+id,name,age,department,salary,city,experience
+1,Amit,28,IT,60000,Hyderabad,3
+2,Sneha,32,HR,55000,Bangalore,7
+3,Rahul,26,IT,50000,Chennai,2
+4,Pooja,30,Finance,65000,Mumbai,5
+5,Arjun,35,IT,80000,Pune,10
+6,Kiran,29,HR,52000,Hyderabad,4
+7,Neha,31,Finance,70000,Bangalore,6
+8,Vikram,27,IT,48000,Chennai,2
+9,Anjali,33,HR,58000,Mumbai,8
+10,Rohit,36,Finance,75000,Pune,12
