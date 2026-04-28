@@ -1,17 +1,46 @@
-class de:
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, avg
+
+from pyspark.sql import SparkSession
+import random
+
+spark = SparkSession.builder \
+    .appName("Broadcast Test") \
+    .master("local[*]") \
+    .getOrCreate()
+
+# Sample values
+names = ["Siva", "Karthik", "Adithya", "Rahul", "Priya", "Anjali", "Ravi", "Sneha"]
+places = ["Hyderabad", "Mumbai", "Pune", "Bangalore", "Chennai", "Delhi"]
+
+# Generate 1000 rows
+data = [(random.choice(names), random.choice(places)) for _ in range(1000)]
+
+schema = ["name", "birth_place"]
+
+df = spark.createDataFrame(data, schema)
+
+df.show(10)
+print("Total rows:", df.count())
 
 
-    def __init__(self,_v1,_v2,_v3):
-        self._v1 = _v1
-        self._v2 = _v2
-        self._v3 = _v3
+small_data = [
+    ("Siva", "A"),
+    ("Karthik", "B"),
+    ("Adithya", "C")
+]
 
-    def fx1(self):
-        print(f"Hellow world,{self._v1}")
+small_schema = ["name", "category"]
 
-    def fx2(self):
-        print(f"helw mnsd , {self._v2}")
+small_df = spark.createDataFrame(small_data, small_schema)
 
 
-o1 = de('a','b','c')
-o1.fx2()
+from pyspark.sql.functions import broadcast
+
+joined_df = df.join(
+    broadcast(small_df),
+    on="name",
+    how="left"
+)
+
+joined_df.show()
