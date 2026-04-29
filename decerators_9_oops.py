@@ -37,8 +37,6 @@ def load_data():
     return df
 df = load_data()"""
 
-
-
 import pandas as pd
 _source_path = r"C:\Users\ACER\Documents\vs_code\coding\spark\sample1.csv"
 _target_path = r"C:\Users\ACER\Documents\vs_code\coding\spark\target.csv"
@@ -64,7 +62,3 @@ def load_data():
 
 
 df = load_data()
-    
-        
-
-
